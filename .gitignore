@@ -35,3 +35,7 @@ build/Release
 node_modules
 
 .vscode
+
+
+#REDIS
+dump.rdb

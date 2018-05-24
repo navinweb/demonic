@@ -1,12 +1,11 @@
 {
   "name": "demonic",
   "version": "1.0.0",
-  "description": "",
+  "description": "demonic list / pet project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node app/server",
-    "dev": "nodemon --exec 'npm run lint && npm run start'",
+    "dev": "nodemon --exec 'npm run lint:fix && npm run start'",
     "lint": "eslint app",
     "lint:fix": "eslint --fix app"
   },
@@ -14,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/navinweb/demonic.git"
   },
-  "author": "",
+  "author": "navinweb",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/navinweb/demonic/issues"
@@ -27,10 +26,16 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
+    "bluebird": "^3.5.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-google": "^0.9.1",
     "koa": "^2.5.1",
-    "nodemon": "^1.17.5"
+    "koa-body": "^2.5.0",
+    "koa-morgan": "^1.0.1",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.17.5",
+    "redis": "^2.8.0",
+    "redis-cli": "^1.0.2"
   }
 }

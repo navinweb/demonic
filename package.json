@@ -1,7 +1,7 @@
 {
-  "name": "demonic",
+  "name": "demonic-server",
   "version": "1.0.0",
-  "description": "demonic list / pet project",
+  "description": "demonic server",
   "main": "index.js",
   "scripts": {
     "start": "babel-node app/server",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/navinweb/demonic.git"
+    "url": "git+https://github.com/navinweb/demonic-server.git"
   },
   "author": "navinweb",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/navinweb/demonic/issues"
+    "url": "https://github.com/navinweb/demonic-server/issues"
   },
-  "homepage": "https://github.com/navinweb/demonic#readme",
+  "homepage": "https://github.com/navinweb/demonic-server#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -27,9 +27,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
     "bluebird": "^3.5.1",
+    "config": "^1.30.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-google": "^0.9.1",
+    "keymirror": "^0.1.1",
     "koa": "^2.5.1",
     "koa-body": "^2.5.0",
     "koa-morgan": "^1.0.1",

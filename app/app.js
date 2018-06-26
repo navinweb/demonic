@@ -1,36 +1,32 @@
 import Koa from 'koa';
 const logger = require('koa-morgan');
 const Router = require('koa-router');
+const serve = require('koa-static');
 const bodyParser = require('koa-body');
-const redis = require('redis');
-const bluebird = require('bluebird');
+const {
+  Posts
+} = require('../db');
 
-bluebird.promisifyAll(redis.RedisClient.prototype);
-const db = redis.createClient();
-
-const app = new Koa();
+const server = new Koa();
 const router = new Router();
 
-router.get('/', async ctx => {
+router.get('/', async (ctx) => {
   ctx.body = '<h1>Demonic</h1>';
 });
 
-router.get('/about', async ctx => {
+router.get('/about', async (ctx) => {
   ctx.body = '<h1>Demonic About</h1>';
 });
 
-router.post('/about', bodyParser(), async ctx => {
-  await db.setAsync('WISP', 'Hey Ho');
-  ctx.body = { data: ctx.request.body };
+router.get('/learn', async (ctx) => {
+  const collection = await Posts.findAll();
+  const index = Math.floor(collection.length * Math.random());
+  const post = collection[index];
+  ctx.body = post;
 });
 
-router.get('/learn', async ctx => {
-  ctx.body = {
-    title: 'Chernobog!!!',
-    content: 'Test store'
-  };
-});
+server.use(logger('tiny'))
+  .use(serve('public'))
+  .use(router.routes());
 
-app.use(logger('tiny')).use(router.routes());
-
-export default app;
+export default server;

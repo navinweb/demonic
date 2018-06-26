@@ -2,10 +2,12 @@ import Koa from 'koa';
 const logger = require('koa-morgan');
 const Router = require('koa-router');
 const serve = require('koa-static');
-const bodyParser = require('koa-body');
+// const bodyParser = require('koa-body');
 const {
   Posts
 } = require('../db');
+
+const port = process.env.PORT || 4001;
 
 const server = new Koa();
 const router = new Router();
@@ -27,6 +29,7 @@ router.get('/learn', async (ctx) => {
 
 server.use(logger('tiny'))
   .use(serve('public'))
-  .use(router.routes());
+  .use(router.routes())
+  .listen(port);
 
 export default server;

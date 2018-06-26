@@ -1,7 +1,12 @@
 const Sequelize = require('sequelize');
 
+const dbString = process.env.DATABASE_URL || 'postgres://nmode:111@localhost:5432/demonic';
+const ssl = !!process.env.DATABASE_URL;
 const db = new Sequelize(
-  'postgres://nmode:111@localhost:5432/demonic', {
+  dbString, {
+    dialectOptions: {
+      ssl
+    },
     operatorsAliases: false,
   }
 );
